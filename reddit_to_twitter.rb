@@ -3,5 +3,6 @@ require 'sinatra'
 require 'twitter'
 
 get '/' do
-  data = JSON.parse(request.body.read)
+  "Hello World"
+  # data = JSON.parse(request.body.read)
 end
