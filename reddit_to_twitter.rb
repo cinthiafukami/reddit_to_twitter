@@ -5,7 +5,8 @@ require 'twitter'
 get '/' do
   client = connect_to_twitter
   data = JSON.parse(request.body.read)
-  client.update(data["title"])
+  client.update("Test")
+  # client.update(data["title"])
 end
 
 def connect_to_twitter
