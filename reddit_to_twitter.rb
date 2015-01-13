@@ -2,7 +2,7 @@
 require 'sinatra'
 require 'twitter'
 
-get '/twitter' do
+get '/*' do
   client = connect_to_twitter
   data = JSON.parse(request.body.read).to_hash
   puts data
