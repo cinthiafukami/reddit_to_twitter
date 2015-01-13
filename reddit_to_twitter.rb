@@ -3,7 +3,7 @@ require 'twitter'
 
 class RedditToTwitter < Sinatra::Base
 
-  get '/' do
+  post '/' do
     client = connect_to_twitter
     data = JSON.parse(request.body.read).to_hash
     puts data
@@ -18,5 +18,5 @@ class RedditToTwitter < Sinatra::Base
       config.access_token_secret = "mtMyTxVUh9MdAO76sbVMU3u7cUJKumCnm4WWhotP0y9K5"
     end
   end
-  
+
 end
