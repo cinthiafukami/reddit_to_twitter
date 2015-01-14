@@ -6,16 +6,15 @@ class RedditToTwitter < Sinatra::Base
   post '/' do
     client = connect_to_twitter
     data = JSON.parse(params.to_json).to_hash
-    puts data
     client.update(data["title"])
   end
 
   def connect_to_twitter
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = "tKryxXxiORPQxuol2pIn0xYpm"
-      config.consumer_secret     = "hh4Q9JcwS6qf6Lr9fpi9wGq1JbVYLWDa6N7SVCTNhkdAegthqN"
-      config.access_token        = "269001389-8A9sIBhACPcksY83plUCuzy3hn3wcia5wMQJeXAc"
-      config.access_token_secret = "mtMyTxVUh9MdAO76sbVMU3u7cUJKumCnm4WWhotP0y9K5"
+      config.consumer_key        = "INSERT_CONSUMER_KEY"
+      config.consumer_secret     = "INSERT_CONSUMER_SECRET"
+      config.access_token        = "INSERT_ACCESS_TOKEN"
+      config.access_token_secret = "INSERT_ACCESS_TOKEN_SECRET"
     end
   end
 
