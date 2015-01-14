@@ -5,8 +5,7 @@ class RedditToTwitter < Sinatra::Base
 
   post '/' do
     client = connect_to_twitter
-    puts params
-    data = JSON.parse(request.body.read).to_hash
+    data = JSON.parse(params).to_hash
     puts data
     client.update(data["title"])
   end
