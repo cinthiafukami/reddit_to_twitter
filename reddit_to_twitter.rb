@@ -1,15 +1,12 @@
 require 'sinatra'
 require 'twitter'
-require 'redd'
 
 class RedditToTwitter < Sinatra::Base
 
-  reddit = Redd::Client::Unauthenticated.new
-
-  reddit.comment_stream 'INSERT_SUBREDDIT_NAME' do |comment|
-    tweet_body = comment.subreddit.title
+  post '/' do
     client = connect_to_twitter
-    client.update(tweet_body)
+    data = JSON.parse(params.to_json).to_hash
+    client.update(data["title"])
   end
 
   def connect_to_twitter
